@@ -15,3 +15,17 @@ CtciStrings.prototype.uniqueString = function(s) {
   }
   return true;
 };
+
+CtciStrings.prototype.is_permutation = function(s1, s2) {
+  var string1 = new String(s1);
+  var string2 = new String(s2);
+
+  if(string1.length == 0 || string2.length == 0) {
+    return true;
+  }
+  if(string2.length > string1.length) {
+    return false;
+  }
+  // Process the real deal, now that edge cases are gone
+  return false;
+};
