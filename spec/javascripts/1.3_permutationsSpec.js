@@ -10,8 +10,10 @@ alert('Entering 1.3_permutationsSpec.js');
 //   {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}; 
 //   empty set = don't care, so make it a permuation
 //
-// Therefore, if B is longer than A, it cannot be a permutation
-// Also, if B is empty, then it is the null set and thus make it a permutation
+// "Decide if one is a permutation of the other" really implies that the
+// comparison can go either way. Thus, the longer string becomes the one
+// to compare against.
+// Also, if either is empty, then it is the null set and thus a permutation
 
 describe("Test for string permutation", function() {
   var ctciStrings = new CtciStrings();
@@ -30,10 +32,22 @@ describe("Test for string permutation", function() {
   });
 
   it("returns false when the 2nd string longer than the 1st string", function() {
-    expect(ctciStrings.is_permutation('a','abc')).toBe(false);
+    expect(ctciStrings.is_permutation('a','abc')).toBe(true);
   });
 
   it("returns true when the strings are simple permutations", function() {
     expect(ctciStrings.is_permutation('a','a')).toBe(true);
+  });
+
+  describe("Generate permutations", function() {
+    var ctciStrings = new CtciStrings();
+
+    it("Generates the null permutation", function() {
+      expect(ctciStrings.permutations('')).toEqual(['']);
+    });
+
+    it("Generates the simplest permutation set", function() {
+      expect(ctciStrings.permutations('a').sort()).toEqual(['','a'].sort());
+    });
   });
 });
