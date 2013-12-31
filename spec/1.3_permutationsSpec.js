@@ -13,7 +13,7 @@
 // to compare against.
 // Also, if either is empty, then it is the null set and thus a permutation
 
-describe("Test for string permutation", function() {
+describe("CtCI1.3 - Test for string permutation", function() {
   var ctciStrings = new CtciStrings();
 
   it("returns true for two empty strings", function() {

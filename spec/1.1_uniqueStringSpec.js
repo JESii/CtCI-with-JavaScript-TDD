@@ -3,7 +3,7 @@
 //    What if you cannot use additional data structures?"
 //   Cracking the Coding Interview, p73 
 
-describe("CtciStrings", function() {
+describe("CtCI 1.1 - Test for string uniqueness", function() {
   var ctciStrings = new CtciStrings();
 
   it("handles the empty string", function() {
