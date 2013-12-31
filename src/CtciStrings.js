@@ -3,8 +3,7 @@
 function CtciStrings() {
 }
 
-CtciStrings.prototype.uniqueString = function(s) {
-  var string = new String(s);
+CtciStrings.prototype.uniqueString = function(string) {
   var len = string.length;
   for(var i = 0; i < len; i++) {
     for(var j = i + 1; j < len; j++) {
@@ -16,9 +15,7 @@ CtciStrings.prototype.uniqueString = function(s) {
   return true;
 };
 
-CtciStrings.prototype.is_permutation = function(s1, s2) {
-  var string1 = new String(s1);
-  var string2 = new String(s2);
+CtciStrings.prototype.is_permutation = function(string1, string2) {
 
   if(string1.length == 0 || string2.length == 0) {
     return true;
@@ -46,8 +43,7 @@ CtciStrings.prototype.is_permutation = function(s1, s2) {
   return false;
 };
 
-CtciStrings.prototype.permutations = function(s1) {
-  var string = new String(s1);
+CtciStrings.prototype.permutations = function(string) {
   if(string.length === 0) {
     return [''];
   }
