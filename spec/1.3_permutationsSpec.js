@@ -1,5 +1,3 @@
-alert('Entering 1.3_permutationsSpec.js');
-
 // CtCI 1.3
 //   "Given two strings, decide if one is a permutation of the other."
 //   Cracking the Coding Interview, p 73
@@ -31,12 +29,20 @@ describe("Test for string permutation", function() {
     expect(ctciStrings.is_permutation('abc','def')).toBe(false);
   });
 
-  it("returns false when the 2nd string longer than the 1st string", function() {
+  it("properly handles case when 2nd string is longer than  1st string", function() {
     expect(ctciStrings.is_permutation('a','abc')).toBe(true);
   });
 
-  it("returns true when the strings are simple permutations", function() {
+  it("handles a simple permutations", function() {
     expect(ctciStrings.is_permutation('a','a')).toBe(true);
+  });
+
+  it("handles another matching case", function() {
+    expect(ctciStrings.is_permutation('ab','abcd')).toBe(true);
+  });
+
+  it("handles anaother non-matching case", function() {
+    expect(ctciStrings.is_permutation('ae','abcd')).toBe(false);
   });
 
   describe("Generate permutations", function() {
@@ -47,7 +53,12 @@ describe("Test for string permutation", function() {
     });
 
     it("Generates the simplest permutation set", function() {
-      expect(ctciStrings.permutations('a').sort()).toEqual(['','a'].sort());
+      // Same problem as in Ruby: it's the same object!!!
+      expect(ctciStrings.permutations('a')).toEqual(['','a']);
+    });
+
+    it("Generates a 2-element permutation", function() {
+      expect(ctciStrings.permutations('ab').sort()).toEqual(['','a','b','ab'].sort());
     });
   });
 });
