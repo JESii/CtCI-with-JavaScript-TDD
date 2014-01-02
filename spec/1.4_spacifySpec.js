@@ -3,8 +3,20 @@
 //  Cracking the Coding Interview, p73
 
 describe("Spacify a string", function() {
-  it("it handles the null string", function() {
+  it("handles the null string", function() {
     cString = new CtciStrings();
     expect(cString.spacify('')).toBe('');
+  });
+  it("handles a single-character blank string", function() {
+    cString = new CtciStrings();
+    expect(cString.spacify(' ')).toBe('%20');
+  });
+  it("handles a single-charcter non-blank string", function() {
+    cString = new CtciStrings();
+    expect(cString.spacify('a')).toBe('a');
+  });
+  it("handles a multi-character string", function() {
+  cString = new CtciStrings();
+  expect(cString.spacify('abc def')).toBe('abc%20def');
   });
 });

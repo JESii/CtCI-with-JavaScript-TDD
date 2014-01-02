@@ -47,7 +47,7 @@ CtciStrings.prototype.permutations = function(string) {
   if(string.length === 0) {
     return [''];
   }
-  
+
   // Algorithm:
   // For each letter in the string (could be charAt())
   // 1. copy what's already in the result arry
@@ -64,5 +64,17 @@ CtciStrings.prototype.permutations = function(string) {
 };
 
 CtciStrings.prototype.spacify = function(string) {
-  return '';
+  if(string === '') { return ''; }
+  var sLen = string.length;
+  var result = '';
+  for(var i = 0; i < sLen; i++) {
+    ch = string.charAt(i);
+    if(ch == ' ') {
+      result += '%20';
+    }
+    else {
+      result += ch;
+    }
+  }
+  return result;
 };
