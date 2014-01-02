@@ -19,4 +19,12 @@ describe("Spacify a string", function() {
   cString = new CtciStrings();
   expect(cString.spacify('abc def')).toBe('abc%20def');
   });
+  it("handles leading/trailing spaces", function() {
+  cString = new CtciStrings();
+  expect(cString.spacify(' abc def ')).toBe('%20abc%20def%20');
+  });
+  it("handles multiple spaces", function() {
+  cString = new CtciStrings();
+  expect(cString.spacify('abc   def')).toBe('abc%20%20%20def');
+  });
 });
