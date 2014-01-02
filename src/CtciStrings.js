@@ -62,3 +62,7 @@ CtciStrings.prototype.permutations = function(string) {
   }
   return result_set;
 };
+
+CtciStrings.prototype.spacify = function(string) {
+  return '';
+};
