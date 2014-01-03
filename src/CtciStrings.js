@@ -78,3 +78,40 @@ CtciStrings.prototype.spacify = function(string) {
   }
   return result;
 };
+
+CtciStrings.prototype.compress = function(string) {
+  var result = '';
+  var str_len = string.length;
+  var prev_char = '';
+  var curr_char = '';
+  var prev_char_cnt = 0;
+
+  process_curr_char = function() {
+    if(prev_char_cnt === 0) {
+      prev_char = curr_char;
+    }
+    else {
+      result += (prev_char_cnt + 1);
+      prev_char = curr_char;
+      prev_char_cnt = 0;
+    }
+  };
+
+  if(string.length <= 2) {
+    return string;
+  }
+  for(var i = 0; i < str_len; i++) {
+    curr_char = string.charAt(i);
+    if(curr_char === prev_char) {
+      prev_char_cnt++;
+    }
+    else {
+      process_curr_char();
+      result += curr_char;
+    }
+  }
+
+  process_curr_char();
+  return result;
+
+};
