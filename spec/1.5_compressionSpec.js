@@ -10,12 +10,16 @@ describe("Compress a string", function() {
     expect(cString.compress('')).toBe('');
   });
   it("returns same string for very short strings", function() {
-  var cString = new CtciStrings();
-  expect(cString.compress('a')).toBe('a');
-  expect(cString.compress('ab')).toBe('ab');
+    var cString = new CtciStrings();
+    expect(cString.compress('a')).toBe('a');
+    expect(cString.compress('ab')).toBe('ab');
   });
   it("compresses a short string", function() {
-  var cString = new CtciStrings();
-  expect(cString.compress('aabcccccaaa')).toBe('a2bc5a3');
+    var cString = new CtciStrings();
+    expect(cString.compress('aabcccccaaa')).toBe('a2bc5a3');
+  });
+  it("returns original string when compression doesn't save space", function() {
+    var cString = new CtciStrings();
+    expect(cString.compress('aabbccdd')).toBe('aabbccdd');
   });
 });

@@ -112,6 +112,11 @@ CtciStrings.prototype.compress = function(string) {
   }
 
   process_curr_char();
-  return result;
+  if(result.length === str_len) {
+    return string;
+  }
+  else {
+    return result;
+  }
 
 };
