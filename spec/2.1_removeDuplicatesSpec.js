@@ -3,7 +3,8 @@
 //  Cracking the Coding Interview, p77
 //  
 //  Also used this coding challenge to investigate the use of the
-//  so-called "JavaScript Module Pattern" (see http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)
+//  so-called "JavaScript Module Pattern" (see 
+//  http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)
 //  for a good description. This pattern allows for public/private variables
 //  and methods in JavaScript, to emulate the class pattern in other languages.
 
@@ -17,7 +18,6 @@ describe("Linked lists", function() {
       expect(cNode.value).toEqual('item 1');
       expect(cNode.next).toBeNull;
     });
-    //TODO: Fix ListNode functionality!!!
     it("creates mltiple nodes", function() {
       var n1 = new ListNode('item1');
       var n2 = new ListNode('item2');
