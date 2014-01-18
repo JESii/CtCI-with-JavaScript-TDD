@@ -1,46 +1,47 @@
-alert("LinkedLists init");
-
 var LinkedList = (function() {
   var self = {
-    listStart: { value: null, next: null },
-    listEnd:  {},
-    numNodes: 0
+    listStart: null,
+    listEnd:  null,
+    listNodes: 0
   };
 
-  LinkedList = function() {
+  LinkedList = function(value) {
+    self.listStart = null;
+    self.listEnd = null;
+    self.listNodes = 0;
     return this;
   }
   LinkedList.prototype = {
     addNode: function(value) {
-      self.listEnd.next = new ListNode(value);
-      self.listEnd = self.listEnd.next;
-      ++self.numNodes;
+      var node = new ListNode(value);
+      if(self.listStart == null) {
+        self.listStart = node;
+        self.listEnd = node;
+      } else {
+        self.listEnd.next = node;
+        self.listEnd = node;
+      }
+      self.listNodes++;
       return self.listEnd;
     },
     numNodes: function() {
-      return self.numNodes;
+      return self.listNodes;
+    },
+    head: function() {
+      return self.listStart;
+    },
+    tail: function() {
+      return self.listEnd;
     }
   };
   return LinkedList;
 })();
 
 var ListNode = (function(value) {
-  var self = {
-    value: null,
-    next: null
-  };
   ListNode = function(value) {
-    self.value = value;
-    self.next = null;
+    this.value = value;
+    this.next = null;
     return this;
-  }
-  ListNode.prototype = {
-    value: function() {
-      return self.value;
-    },
-    next: function() {
-      return self.next;
-    }
   }
   return ListNode;
 })();
